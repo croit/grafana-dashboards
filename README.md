@@ -9,7 +9,7 @@ Use the following command when deploying on the same server as the croit applica
 ```
 sudo docker run --net=host -d --name=grafana -e "GF_SECURITY_ADMIN_PASSWORD=<set-grafana-password-here>" grafana/grafana
 ```
-Replace the password for the initial Grafana admin user. See [Grafana documentation](http://docs.grafana.org/installation/docker/) for further options.
+Grafana will be available on port 3000 by default. Replace the password for the initial Grafana admin user. See [Grafana documentation](http://docs.grafana.org/installation/docker/) for further options.
 
 
 You can also use your existing Grafana instance, these dashboards require Grafana 4.5 or later and access to port 23647 of the croit management server.
