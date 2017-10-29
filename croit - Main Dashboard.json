@@ -755,7 +755,7 @@
           "targets": [
             {
               "refId": "B",
-              "target": "aliasSub(exclude(exclude(exclude(exclude(exclude(croit-server-*.df-*.percent_bytes-used, 'cephfs'), 'var-lib-ceph-mon'), 'squashfs'), 'root'), 'tmp-mnt'), '.*ceph\\-osd\\-ceph\\-(\\d*).*', 'OSD \\1 Disk Usage')",
+              "target": "aliasSub(scale(croit-ceph-mons.ceph.current-usage-permille-osd-*, 0.1), '.*osd\\-(\\d*).*', 'OSD \\1 Disk Usage')",
               "textEditor": true
             }
           ],
