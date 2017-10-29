@@ -707,6 +707,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "${DS_CROIT}",
+          "decimals": 1,
           "editable": true,
           "error": false,
           "fill": 0,
