@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "hideControls": false,
-  "id": 1,
+  "id": 4,
   "links": [],
   "rows": [
     {
@@ -43,7 +43,7 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "connected",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -57,20 +57,14 @@
             {
               "hide": false,
               "refId": "C",
-              "target": "alias(sumSeries(exclude(exclude(croit-ceph-mons.radosgw.bytes-*-total, 'bytes-actual'), 'bytes-utilized')), 'Bytes used')",
-              "textEditor": false
-            },
-            {
-              "hide": false,
-              "refId": "B",
-              "target": "alias(sumSeries(croit-ceph-mons.radosgw.bytes-actual-*-total), 'Actual Bytes used')",
+              "target": "alias(sumSeries(croit-ceph-rgw.users.bytes-*), 'Bytes used')",
               "textEditor": true
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Data Usage - All Buckets",
+          "title": "Data Usage - All Users",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -86,7 +80,7 @@
           },
           "yaxes": [
             {
-              "format": "bytes",
+              "format": "decbytes",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -123,7 +117,7 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "connected",
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -137,14 +131,14 @@
             {
               "hide": false,
               "refId": "B",
-              "target": "alias(sumSeries(croit-ceph-mons.radosgw.objects-*-total), 'Objects used')",
+              "target": "alias(sumSeries(croit-ceph-rgw.users.objects-*), 'Bytes used')",
               "textEditor": true
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Object Usage - All Buckets",
+          "title": "Object Usage - All Users",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -209,16 +203,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "connected",
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "scopedVars": {
-            "Bucket": {
+            "User": {
               "selected": false,
-              "text": "test-small",
-              "value": "test-small"
+              "text": "asdfasdfgasd",
+              "value": "asdfasdfgasd"
             }
           },
           "seriesOverrides": [],
@@ -230,13 +224,7 @@
             {
               "hide": false,
               "refId": "B",
-              "target": "alias(croit-ceph-mons.radosgw.bytes-$Bucket-total, 'Bytes used')",
-              "textEditor": true
-            },
-            {
-              "hide": false,
-              "refId": "A",
-              "target": "alias(croit-ceph-mons.radosgw.bytes-actual-$Bucket-total, 'Actual Bytes used')",
+              "target": "alias(sumSeries(croit-ceph-rgw.users.bytes-$User), 'Bytes used')",
               "textEditor": true
             }
           ],
@@ -296,16 +284,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "connected",
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "scopedVars": {
-            "Bucket": {
+            "User": {
               "selected": false,
-              "text": "test-small",
-              "value": "test-small"
+              "text": "asdfasdfgasd",
+              "value": "asdfasdfgasd"
             }
           },
           "seriesOverrides": [],
@@ -317,14 +305,14 @@
             {
               "hide": false,
               "refId": "B",
-              "target": "alias(croit-ceph-mons.radosgw.objects-$Bucket-total, 'Bytes used')",
+              "target": "alias(sumSeries(croit-ceph-rgw.users.objects-$User), 'Objects used')",
               "textEditor": true
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Objects Used",
+          "title": "Object Usage",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -358,11 +346,11 @@
           ]
         }
       ],
-      "repeat": "Bucket",
+      "repeat": "User",
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": true,
-      "title": "Bucket $Bucket",
+      "title": "User $User",
       "titleSize": "h5"
     },
     {
@@ -389,13 +377,13 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "connected",
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "scopedVars": {
-            "Bucket": {
+            "User": {
               "selected": false,
               "text": "test",
               "value": "test"
@@ -410,13 +398,7 @@
             {
               "hide": false,
               "refId": "B",
-              "target": "alias(croit-ceph-mons.radosgw.bytes-$Bucket-total, 'Bytes used')",
-              "textEditor": true
-            },
-            {
-              "hide": false,
-              "refId": "A",
-              "target": "alias(croit-ceph-mons.radosgw.bytes-actual-$Bucket-total, 'Actual Bytes used')",
+              "target": "alias(sumSeries(croit-ceph-rgw.users.bytes-$User), 'Bytes used')",
               "textEditor": true
             }
           ],
@@ -476,13 +458,13 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "connected",
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "scopedVars": {
-            "Bucket": {
+            "User": {
               "selected": false,
               "text": "test",
               "value": "test"
@@ -497,14 +479,14 @@
             {
               "hide": false,
               "refId": "B",
-              "target": "alias(croit-ceph-mons.radosgw.objects-$Bucket-total, 'Bytes used')",
+              "target": "alias(sumSeries(croit-ceph-rgw.users.objects-$User), 'Objects used')",
               "textEditor": true
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Objects Used",
+          "title": "Object Usage",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -539,10 +521,10 @@
         }
       ],
       "repeat": null,
-      "repeatIteration": 1513810098704,
+      "repeatIteration": 1514118632232,
       "repeatRowId": 2,
       "showTitle": true,
-      "title": "Bucket $Bucket",
+      "title": "User $User",
       "titleSize": "h5"
     }
   ],
@@ -554,6 +536,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": true,
           "tags": [],
           "text": "All",
           "value": [
@@ -565,11 +548,11 @@
         "includeAll": true,
         "label": null,
         "multi": true,
-        "name": "Bucket",
+        "name": "User",
         "options": [],
-        "query": "croit-ceph-mons.radosgw.objects-*-total",
+        "query": "croit-ceph-rgw.users.objects-*",
         "refresh": 1,
-        "regex": "/.*objects\\-(.*)\\-total/",
+        "regex": "/.*objects\\-(.*)/",
         "sort": 3,
         "tagValuesQuery": "",
         "tags": [],
@@ -580,7 +563,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {
@@ -609,6 +592,6 @@
     ]
   },
   "timezone": "",
-  "title": "croit - RadosGW/S3 Stats",
-  "version": 4
+  "title": "croit - RadosGW/S3 Users",
+  "version": 7
 }
