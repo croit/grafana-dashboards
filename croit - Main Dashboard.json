@@ -9,40 +9,24 @@
       "pluginName": "Graphite"
     }
   ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "4.5.1"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "graphite",
-      "name": "Graphite",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
-    "list": []
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
   },
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "hideControls": true,
-  "id": null,
+  "id": 1,
   "links": [],
   "refresh": "5m",
   "rows": [
@@ -95,12 +79,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "alias(sum(croit-ceph-mons.ceph.disk_ops-total.read, collectd-ceph-mon1-first-colo-net.ceph.disk_ops-total.read), 'Read')",
+              "target": "alias(croit-ceph-mons.ceph.disk_ops-total.read, 'Read')",
               "textEditor": true
             },
             {
               "refId": "B",
-              "target": "alias(sum(croit-ceph-mons.ceph.disk_ops-total.write, collectd-ceph-mon1-first-colo-net.ceph.disk_ops-total.write), 'Write')",
+              "target": "alias(croit-ceph-mons.ceph.disk_ops-total.write, 'Write')",
               "textEditor": true
             }
           ],
@@ -184,12 +168,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "alias(sum(croit-ceph-mons.ceph.disk_octets-total.read, collectd-ceph-mon1-first-colo-net.ceph.disk_octets-total.read), 'Read')",
+              "target": "alias(croit-ceph-mons.ceph.disk_octets-total.read, 'Read')",
               "textEditor": true
             },
             {
               "refId": "B",
-              "target": "alias(sum(croit-ceph-mons.ceph.disk_octets-total.write, collectd-ceph-mon1-first-colo-net.ceph.disk_octets-total.write), 'Write')",
+              "target": "alias(croit-ceph-mons.ceph.disk_octets-total.write, 'Write')",
               "textEditor": true
             }
           ],
@@ -409,12 +393,12 @@
           "targets": [
             {
               "refId": "A",
-              "target": "alias(sum(croit-ceph-mons.ceph.bytes-recovery, collectd-ceph-mon1-first-colo-net.ceph.bytes-recovery), 'Bytes')",
+              "target": "alias(croit-ceph-mons.ceph.bytes-recovery, 'Bytes')",
               "textEditor": true
             },
             {
               "refId": "B",
-              "target": "alias(sum(croit-ceph-mons.ceph.files-recovery, collectd-ceph-mon1-first-colo-net.ceph.files-recovery), 'Objects')",
+              "target": "alias(croit-ceph-mons.ceph.objects-recovery, 'Objects')",
               "textEditor": true
             }
           ],
@@ -998,5 +982,5 @@
   },
   "timezone": "browser",
   "title": "croit - Main Dashboard",
-  "version": 18
+  "version": 2
 }
