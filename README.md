@@ -22,10 +22,8 @@ Add a data source with the following options:
 * URL: http://localhost:23647 (adjust when not running on the same node)
 * Access: Proxy
 * Auth: Basic Auth, With Credentials
-* User: graphite
-* Password: your croit installation's graphite password
+* User/Password: any croit user with "Viewer" privileges
 
-You can also add a Graphite user to the file `/config/.htpasswd-graphite` in the croit Docker container.
 
 ## Import the Dashboards
 Select Dashboards -> Import from the Grafana main menu.
