@@ -19,7 +19,7 @@ Add a data source with the following options:
 
 * Name: croit
 * Type: graphite
-* URL: http://localhost:8080/graphite/ (adjust when not running on the same node, HTTPS is also available, same config certificate config as our dashboard)
+* URL: http://localhost:8428/graphite/ (adjust when not running on the same node, HTTPS is also available, same config certificate config as our dashboard)
 * Access: Server
 * Auth: Basic Auth, With Credentials
 * User/Password: any croit user with "Viewer" privileges
