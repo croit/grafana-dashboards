@@ -277,12 +277,12 @@
             {
               "hide": false,
               "refId": "B",
-              "target": "alias(movingAverage(croit-$Server.memory.memory-used, '$Smoothing'), 'Memory used')\"",
+              "target": "alias(movingAverage(croit-$Server.memory.memory-used, '$Smoothing'), 'Memory used')",
               "textEditor": true
             },
             {
               "refId": "A",
-              "target": "alias(movingAverage(croit-$Server.memory.memory-buffered, '$Smoothing'), 'Buffers')\"",
+              "target": "alias(movingAverage(croit-$Server.memory.memory-buffered, '$Smoothing'), 'Buffers')",
               "textEditor": true
             },
             {
