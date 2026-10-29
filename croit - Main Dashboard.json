@@ -481,7 +481,7 @@
           "targets": [
             {
               "refId": "A",
-              "target": "aliasSub(exclude(exclude(croit-ceph-mons.ceph.gauge-pgs-*, '.*active$'), '.*clean$'), \".+\\pgs-(\\w+)\", \"\\1\")",
+              "target": "aliasSub(exclude(exclude(croit-ceph-mons.ceph.gauge-pgs-*, '.*active$'), '.*clean$'), \".+pgs-(\\w+)\", \"\\1\")",
               "textEditor": true
             }
           ],
