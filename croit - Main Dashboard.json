@@ -48,6 +48,8 @@
               "textEditor": true
             }
           ],
+          "timeFrom": "5m",
+          "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
               "unit": "percent",
@@ -105,6 +107,8 @@
               "textEditor": true
             }
           ],
+          "timeFrom": "5m",
+          "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
               "unit": "bytes",
@@ -158,6 +162,8 @@
               "textEditor": true
             }
           ],
+          "timeFrom": "5m",
+          "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
               "unit": "none",
@@ -210,6 +216,8 @@
               "textEditor": true
             }
           ],
+          "timeFrom": "5m",
+          "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
               "unit": "none",
@@ -268,6 +276,8 @@
               "textEditor": true
             }
           ],
+          "timeFrom": "5m",
+          "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
               "unit": "short",

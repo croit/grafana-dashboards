@@ -79,7 +79,7 @@
             }
           ],
           "spaceLength": 10,
-          "span": 12,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -130,13 +130,63 @@
               "show": true
             }
           ]
+        },
+        {
+          "id": 47,
+          "type": "timeseries",
+          "title": "Share of raw capacity",
+          "description": "Raw bytes the pool occupies, replicas and erasure-coding overhead included, as a share of the cluster's raw capacity.",
+          "span": 6,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasSub(asPercent(croit-ceph-mons.ceph.bytes-pool-$Pool, scale(croit-ceph-mons.ceph.bytes-total-capacity, 1024)), '.*bytes-pool-([^,)]*).*', '\\1')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percent",
+              "min": 0,
+              "custom": {
+                "lineWidth": 1,
+                "fillOpacity": 10,
+                "spanNulls": true,
+                "showPoints": "never",
+                "stacking": {
+                  "mode": "normal",
+                  "group": "A"
+                }
+              },
+              "color": {
+                "mode": "palette-classic"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "legend": {
+              "showLegend": true,
+              "displayMode": "table",
+              "placement": "bottom",
+              "calcs": [
+                "lastNotNull",
+                "max"
+              ]
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          }
         }
       ],
       "repeat": null,
       "repeatIteration": null,
       "repeatRowId": null,
-      "showTitle": false,
-      "title": "New row",
+      "showTitle": true,
+      "title": "Selected pools",
       "titleSize": "h6"
     },
     {
@@ -399,7 +449,7 @@
           ]
         },
         {
-          "id": 47,
+          "id": 48,
           "type": "timeseries",
           "title": "Share of raw capacity",
           "description": "Raw bytes the pool occupies, replicas and erasure-coding overhead included, as a share of the cluster's raw capacity.",
