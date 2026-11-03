@@ -375,7 +375,9 @@
               "calcs": [
                 "lastNotNull",
                 "max"
-              ]
+              ],
+              "sortBy": "Last *",
+              "sortDesc": true
             },
             "tooltip": {
               "mode": "multi",
@@ -425,7 +427,9 @@
               "calcs": [
                 "lastNotNull",
                 "max"
-              ]
+              ],
+              "sortBy": "Last *",
+              "sortDesc": true
             },
             "tooltip": {
               "mode": "multi",
