@@ -174,7 +174,7 @@
           "repeatIteration": 1503062630521,
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 4,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -257,7 +257,7 @@
           "repeatIteration": 1503062630521,
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 4,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -346,7 +346,7 @@
             }
           ],
           "spaceLength": 10,
-          "span": 4,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -397,6 +397,56 @@
               "show": true
             }
           ]
+        },
+        {
+          "id": 47,
+          "type": "timeseries",
+          "title": "Share of raw capacity",
+          "description": "Raw bytes the pool occupies, replicas and erasure-coding overhead included, as a share of the cluster's raw capacity.",
+          "span": 3,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(asPercent(croit-ceph-mons.ceph.bytes-pool-$Pool, scale(croit-ceph-mons.ceph.bytes-total-capacity, 1024)), 'Share')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percent",
+              "min": 0,
+              "custom": {
+                "lineWidth": 1,
+                "fillOpacity": 10,
+                "spanNulls": true,
+                "showPoints": "never",
+                "stacking": {
+                  "mode": "none",
+                  "group": "A"
+                }
+              },
+              "color": {
+                "mode": "palette-classic"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "legend": {
+              "showLegend": true,
+              "displayMode": "table",
+              "placement": "bottom",
+              "calcs": [
+                "lastNotNull",
+                "max"
+              ]
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          }
         }
       ],
       "repeat": "Pool",

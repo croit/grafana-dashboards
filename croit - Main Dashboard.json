@@ -32,6 +32,407 @@
   "rows": [
     {
       "collapse": false,
+      "height": "150px",
+      "panels": [
+        {
+          "id": 10,
+          "type": "gauge",
+          "title": "Raw used",
+          "description": "Raw space used across all OSDs, replicas included.",
+          "span": 3,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(asPercent(croit-ceph-mons.ceph.bytes-total, croit-ceph-mons.ceph.bytes-total-capacity), 'Used')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percent",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 75
+                  },
+                  {
+                    "color": "red",
+                    "value": 85
+                  }
+                ]
+              },
+              "color": {
+                "mode": "thresholds"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdMarkers": true,
+            "showThresholdLabels": false
+          }
+        },
+        {
+          "id": 11,
+          "type": "stat",
+          "title": "Raw capacity",
+          "description": "",
+          "span": 3,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(scale(croit-ceph-mons.ceph.bytes-total, 1024), 'Used')",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "alias(scale(croit-ceph-mons.ceph.bytes-total-capacity, 1024), 'Total')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "bytes",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "text",
+                    "value": null
+                  }
+                ]
+              },
+              "color": {
+                "mode": "thresholds"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "colorMode": "none",
+            "graphMode": "none",
+            "textMode": "value_and_name",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "wideLayout": true
+          }
+        },
+        {
+          "id": 12,
+          "type": "stat",
+          "title": "OSDs",
+          "description": "",
+          "span": 2,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(diffSeries(croit-ceph-mons.ceph.gauge-osds, croit-ceph-mons.ceph.gauge-osds-up), 'Down')",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "alias(diffSeries(croit-ceph-mons.ceph.gauge-osds, croit-ceph-mons.ceph.gauge-osds-in), 'Out')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "none",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  }
+                ]
+              },
+              "color": {
+                "mode": "thresholds"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "colorMode": "background",
+            "graphMode": "none",
+            "textMode": "value_and_name",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "wideLayout": true
+          }
+        },
+        {
+          "id": 13,
+          "type": "stat",
+          "title": "Problem PGs",
+          "description": "PG counts per state, leaving out active, clean and scrubbing. A PG in several states counts once per state.",
+          "span": 2,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasSub(exclude(croit-ceph-mons.ceph.gauge-pgs-*, '.*-(active|clean|scrubbing|deep-scrubbing)$'), '.*pgs-(.*)', '\\1')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "none",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 1
+                  }
+                ]
+              },
+              "color": {
+                "mode": "thresholds"
+              },
+              "noValue": "0"
+            },
+            "overrides": []
+          },
+          "options": {
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "colorMode": "background",
+            "graphMode": "none",
+            "textMode": "value_and_name",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "wideLayout": true
+          }
+        },
+        {
+          "id": 14,
+          "type": "stat",
+          "title": "Objects",
+          "description": "",
+          "span": 2,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(croit-ceph-mons.ceph.objects-degraded, 'Degraded')",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "alias(croit-ceph-mons.ceph.objects-misplaced, 'Misplaced')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 1
+                  }
+                ]
+              },
+              "color": {
+                "mode": "thresholds"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "colorMode": "background",
+            "graphMode": "none",
+            "textMode": "value_and_name",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "wideLayout": true
+          }
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": true,
+      "title": "Cluster overview",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": "250px",
+      "panels": [
+        {
+          "id": 15,
+          "type": "timeseries",
+          "title": "Raw capacity",
+          "description": "",
+          "span": 6,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(scale(croit-ceph-mons.ceph.bytes-total, 1024), 'Used')",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "alias(scale(croit-ceph-mons.ceph.bytes-total-capacity, 1024), 'Total')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "bytes",
+              "min": 0,
+              "custom": {
+                "lineWidth": 1,
+                "fillOpacity": 0,
+                "spanNulls": true,
+                "showPoints": "never",
+                "stacking": {
+                  "mode": "none",
+                  "group": "A"
+                }
+              },
+              "color": {
+                "mode": "palette-classic"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "legend": {
+              "showLegend": true,
+              "displayMode": "table",
+              "placement": "bottom",
+              "calcs": [
+                "lastNotNull",
+                "max"
+              ]
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          }
+        },
+        {
+          "id": 16,
+          "type": "timeseries",
+          "title": "Pool share of raw capacity",
+          "description": "Raw bytes the pool occupies, replicas and erasure-coding overhead included, as a share of the cluster's raw capacity.",
+          "span": 6,
+          "datasource": "${DS_CROIT}",
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasSub(asPercent(croit-ceph-mons.ceph.bytes-pool-*, scale(croit-ceph-mons.ceph.bytes-total-capacity, 1024)), '.*bytes-pool-([^,)]*).*', '\\1')",
+              "textEditor": true
+            }
+          ],
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percent",
+              "min": 0,
+              "custom": {
+                "lineWidth": 1,
+                "fillOpacity": 10,
+                "spanNulls": true,
+                "showPoints": "never",
+                "stacking": {
+                  "mode": "normal",
+                  "group": "A"
+                }
+              },
+              "color": {
+                "mode": "palette-classic"
+              }
+            },
+            "overrides": []
+          },
+          "options": {
+            "legend": {
+              "showLegend": true,
+              "displayMode": "table",
+              "placement": "bottom",
+              "calcs": [
+                "lastNotNull",
+                "max"
+              ]
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "desc"
+            }
+          }
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": true,
+      "title": "Capacity",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
       "height": "250px",
       "panels": [
         {
@@ -738,8 +1139,8 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "B",
-              "target": "aliasSub(exclude(exclude(exclude(exclude(exclude(croit-server-*.df-*.percent_bytes-used, 'cephfs'), 'var-lib-ceph-mon'), 'squashfs'), 'root'), 'tmp-mnt'), '.*ceph\\-osd\\-ceph\\-(\\d*).*', 'OSD \\1 Disk Usage')",
+              "refId": "A",
+              "target": "aliasSub(keepLastValue(scale(croit-ceph-mons.ceph.current-usage-permille-osd-*, 0.1)), '.*osd-(\\d+).*', 'OSD \\1')",
               "textEditor": true
             }
           ],
