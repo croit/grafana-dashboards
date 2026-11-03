@@ -14,7 +14,7 @@ They read the metrics croit already collects from every node, through croit's Gr
 
 ## Requirements
 
-* Grafana 7.4 or later. The dashboards are tested with Grafana 13.
+* Grafana 8 or later. The dashboards are tested with Grafana 13.
 * Network access from Grafana to the croit management node on port 8080 (HTTP) or 443 (HTTPS).
 * A croit user with the viewer role. Grafana uses it to read the metrics.
 
