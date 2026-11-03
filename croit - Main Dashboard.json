@@ -48,7 +48,7 @@
               "textEditor": true
             }
           ],
-          "timeFrom": "5m",
+          "timeFrom": "1m",
           "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
@@ -107,7 +107,7 @@
               "textEditor": true
             }
           ],
-          "timeFrom": "5m",
+          "timeFrom": "1m",
           "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
@@ -162,7 +162,7 @@
               "textEditor": true
             }
           ],
-          "timeFrom": "5m",
+          "timeFrom": "1m",
           "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
@@ -216,7 +216,7 @@
               "textEditor": true
             }
           ],
-          "timeFrom": "5m",
+          "timeFrom": "1m",
           "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
@@ -276,7 +276,7 @@
               "textEditor": true
             }
           ],
-          "timeFrom": "5m",
+          "timeFrom": "1m",
           "hideTimeOverride": true,
           "fieldConfig": {
             "defaults": {
